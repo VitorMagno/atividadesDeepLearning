@@ -51,6 +51,9 @@ print(arr3)
 # %%
 # creating an array of all combinations of another two arrays (I don't know)
 
+result = np.meshgrid(arr1[:3],arr2[0,:3])
+result = np.array(result).T
+print(result)
 # %%
 # making a border around an array
 modes = ['edge','linear_ramp','maximum','mean','median','minimum','reflect','symmetric', 'wrap','empty','constant']
@@ -68,3 +71,11 @@ value = 1
 result = np.isin(arr1, value) # np.array 
 result2 = (arr1 == 1) 
 print(result, result2)
+# %%
+# get all 2d diagonals of a 3d numppy array
+array = np.array([[[1, 2, 3], [4, 5, 6],[7, 8, 9]],[[10, 11, 12],[13, 14, 15],[16, 17, 18]],[[19, 20, 21],[22, 23, 24],[25, 26, 27]]])
+diagonals = []
+for i in range(array.shape[0]):
+    diagonals.append(np.diagonal(array[i]))
+diagonals = np.array(diagonals)
+print(diagonals)

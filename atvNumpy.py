@@ -94,6 +94,26 @@ print(diagonals)
 
 # %%
 # flattening a matrix 
-array.flatten()
+print(array[0,:])
+flatten = array[0,:].flatten()
+print(flatten)
 
 # %%
+# flattening a 2d numpyarray
+print(arr2)
+print(arr2.flatten())
+
+# %%
+# moving axes 
+print(arr2)
+moved = np.moveaxis(arr2, 0, 1)
+print(moved)
+
+# %%
+# interchanging axes
+print(arr2)
+changed = np.swapaxes(arr2, 0, 1)
+print(changed)
+
+# %%
+# fibonacci series

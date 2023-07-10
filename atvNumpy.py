@@ -117,3 +117,28 @@ print(changed)
 
 # %%
 # fibonacci series
+x = 10
+x = np.arange(1, x)
+sqrtFive = np.sqrt(5)
+alfa = (1 + sqrtFive) / 2
+beta = (1 - sqrtFive) / 2
+
+Fn = np.rint(((alfa**x) - (beta**x)) / sqrtFive)
+Fn
+
+# %%
+# counting number of non-zero values
+randomArray = np.rint(np.random.rand(10)*10)
+# %%
+resp = 0
+for element in randomArray:
+    if(element>0):
+        resp+=1
+resp
+
+# %%
+# counting the number of elements along an axis
+len(array[0])
+
+# %%
+# triming the leading and/or trailing zeros from a 1-D array

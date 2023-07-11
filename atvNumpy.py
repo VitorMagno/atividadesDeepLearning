@@ -52,10 +52,13 @@ print(result)
 
 # %%
 # combining one and two dimensional arrays
-arr1 = np.array([1,2,3,4])
-arr2 = np.array([[5,6,7,8], [9,10,11,12]])
-arr3 = np.vstack((arr1,arr2))
-print(arr3)
+arr1 = np.array([1., 2., 3., 4.,])
+arr2 = np.array([5.,6.,7.,8.])
+arr4 = np.array([[0,6],[9,1]])
+arr5 = np.array([[8,4],[6,6]])
+arr6 = np.column_stack((arr4,arr5))
+arr3 = np.column_stack((arr1,arr2))
+print(arr3 ,arr3.shape,'\n', arr6, arr6.shape)
 
 # %%
 # creating an array of all combinations(2,2) of another two arrays

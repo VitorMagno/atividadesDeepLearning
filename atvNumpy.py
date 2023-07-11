@@ -62,7 +62,7 @@ print(arr3 ,arr3.shape,'\n', arr6, arr6.shape)
 
 # %%
 # creating an array of all combinations(2,2) of another two arrays
-result = np.meshgrid(arr1[:3],arr2[0,:3])
+result = np.meshgrid(arr1,arr2)
 result = np.array(result).T.reshape(-1,2)
 print(result)
 
@@ -108,14 +108,15 @@ print(arr2.flatten())
 
 # %%
 # moving axes 
-print(arr2)
-moved = np.moveaxis(arr2, 0, 1)
+print(array)
+moved = np.moveaxis(array, [0,1], [1,0])
 print(moved)
 
 # %%
 # interchanging axes
-print(arr2)
-changed = np.swapaxes(arr2, 0, 1)
+print(array)
+changed = np.swapaxes(array, 0,1)
+print('\n')
 print(changed)
 
 # %%
@@ -133,6 +134,7 @@ Fn
 # counting number of non-zero values
 randomArray = np.rint(np.random.rand(10)*10)
 # %%
+print(randomArray)
 resp = 0
 for element in randomArray:
     if(element>0):
@@ -145,3 +147,23 @@ len(array[0])
 
 # %%
 # triming the leading and/or trailing zeros from a 1-D array
+toTrim = np.array([0,0,1,3,4,0])
+toTrim = np.trim_zeros(toTrim)
+print(toTrim)
+
+# %%
+# changing data type
+print(toTrim.dtype)
+toTrim = toTrim.astype('float64')
+print(toTrim)
+print(toTrim.dtype)
+
+# %%
+# reversing a numpy array
+toTrim = np.flip(toTrim)
+print(toTrim)
+
+# %%
+# making an array readOnly
+toTrim.setflags(write=False)
+toTrim[1]=2

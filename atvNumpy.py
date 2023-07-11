@@ -1,5 +1,7 @@
 # %%
+# Numpy Array
 import numpy as np
+# %% 
 # creating an empty and full np.array
 fullArray = np.array([1,2,3,4])
 emptyArray = np.empty(4)
@@ -167,3 +169,8 @@ print(toTrim)
 # making an array readOnly
 toTrim.setflags(write=False)
 toTrim[1]=2
+
+# %%
+# Numpy Matrix
+# %%
+# Getting the maximum value of a matrix

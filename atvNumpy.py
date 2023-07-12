@@ -637,3 +637,94 @@ print(np.polynomial.polynomial.polyval3d([2,1],[1,2],[2,3], c))
 # Numpy Strings
 # %%
 # Repeat all the elements of a NumPy array of strings
+arr = np.array(['Akash', 'Rohit', 'Ayush','Dhruv', 'Radhika'], dtype = str)
+newArr = np.char.multiply(arr,3)
+print(newArr)
+
+# %%
+# How to split the element of a given NumPy array with spaces?
+array = np.array(['Mai rapai, eh mermo'], dtype=str)
+splited = np.char.split(array)
+print(splited)
+
+# %%
+# How to insert a space between characters of all the elements of a given NumPy array?
+x = np.array(["eh", "nada", "menino"], dtype=str)
+result = np.char.join(" ", x)
+print(result)
+
+# %%
+# Find the length of each string element in the Numpy array
+arr = np.array(['New York', 'Lisbon', 'Beijing', 'Quebec'], dtype=str)
+print(arr)
+lenght = np.vectorize(len)
+arr_len = lenght(arr)
+print(arr_len)
+
+# %%
+# Swap the case of an array of string
+array = np.char.swapcase(array)
+print(array)
+# %%
+# Change the case to uppercase of elements of an array
+upper = np.char.upper(array)
+print(upper)
+
+# %%
+# Change the case to lowercase of elements of an array
+lower = np.char.lower(array)
+print(lower)
+
+# %%
+# Join String by a seperator
+result = np.core.defchararray.join('-',arr)
+print(result)
+
+# %%
+# Check if two same shaped string arrays one by one
+result = np.char.equal(lower, upper)
+print(result)
+
+# %%
+# Count the number of substrings in an array
+result = np.char.count(lower, sub="ai")
+print(result)
+
+# %%
+# Find the lowest index of the substring in an array
+result = np.char.find(lower, sub="ai")
+print(result)
+
+# %%
+# Get the boolean array when values end with a particular character
+result = np.char.endswith(lower, 'mo')
+print(result)
+
+# %%
+# More Questions
+# %%
+# Different ways to convert a Python dictionary to a NumPy array
+
+# %%
+# How to convert a list and tuple into NumPy arrays?
+
+# %%
+# Ways to convert array of strings to array of floats
+
+# %%
+# Convert a NumPy array into a csv file
+
+# %%
+# How to Convert an image to NumPy array and save it to CSV file using Python?
+
+# %%
+# How to save a NumPy array to a text file?
+
+# %%
+# Load data from a text file
+
+# %%
+# Plot line graph from NumPy array
+
+# %%
+# Create Histogram using NumPy

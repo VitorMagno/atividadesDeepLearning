@@ -548,25 +548,25 @@ print(np.nanmean(arr))
 
 # %%
 # Get the mean value from given matrix
-np.mean()
+np.mean(inp)
 
 # %%
 # Compute the variance of the NumPy array
-np.var()
+np.var(inp)
 
 # %%
 # Compute the standard deviation of the NumPy array
-np.std()
+np.std(inp)
 
 # %%
 # Compute pearson product-moment correlation coefficients of two given NumPy arrays
-np.corrcoef()
+np.corrcoef(inp)
 
 # %%
 # Calculate the average, variance and standard deviation in Python using NumPy
-np.average()
-np.var()
-np.std()
+np.average(inp)
+np.var(inp)
+np.std(inp)
 
 # %%
 # Describe an array
@@ -728,3 +728,4 @@ print(result)
 
 # %%
 # Create Histogram using NumPy
+# %%

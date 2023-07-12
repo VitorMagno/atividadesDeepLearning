@@ -172,5 +172,103 @@ toTrim[1]=2
 
 # %%
 # Numpy Matrix
+matrix = np.rint(np.random.rand(3,3)*10)
+matrix
 # %%
 # Getting the maximum value of a matrix
+matrix.max()
+
+# %%
+# Getting the minimum value of a matrix
+matrix.min()
+
+# %%
+# shape of a matrix
+matrix.shape
+
+# %%
+# selecting elements from a given matrix
+print(matrix[0][1])
+print(matrix[:1])
+
+# %%
+# the sum of values
+matrix.sum()
+
+# %%
+# sum of diagonal
+soma = np.trace(matrix)
+print(soma)
+
+# %%
+# adding and subtracting
+matrix2 = np.rint(np.random.rand(3,3)*10)
+addM = matrix + matrix2
+print(addM)
+subM = matrix - matrix2
+print(subM)
+
+# %%
+# adding columns and rows
+column = np.array([1,2,3])
+row = np.array([1,2,3,4])
+novoArray = np.hstack((matrix, np.atleast_2d(column).T))
+print(novoArray)
+novoArray = np.vstack((novoArray, row))
+print('\n',novoArray)
+
+# %%
+# multiplication of a matrix
+multM = np.dot(matrix, matrix2)
+print(multM)
+
+# %%
+# eigenvalues
+eigenvalues, eigvectors = np.linalg.eig(matrix)
+print(eigenvalues)
+
+# %%
+# determinant
+determinant = np.linalg.det(matrix)
+print(determinant)
+
+# %%
+# inverting a matrix
+inverseMatrix = np.linalg.inv(matrix)
+print(inverseMatrix)
+
+# %%
+# counting unique values
+print(len(np.unique(matrix)))
+
+# %%
+# multiplying matrix of complex numbers
+x = np.array([2+3j, 4+5j])
+print(x)
+y = np.array([8+7j, 5+6j])
+print(y)
+z = np.vdot(x, y)
+print(z)
+
+# %%
+# outer product
+z = np.outer(x,y)
+print(z)
+
+# %%
+# inner, outer, cross products
+z = np.outer(x,y)
+print(z)
+z = np.inner(x,y)
+print(z)
+z = np.cross(x,y)
+print(z)
+
+# %%
+# covariance
+x = np.array([[0,1,2],[2,1,0]])
+z = np.cov(x)
+print(z)
+
+# %%
+# 

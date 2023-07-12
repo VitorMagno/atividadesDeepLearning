@@ -588,4 +588,52 @@ print("Standard Deviation =", sd)
 # %%
 # Polynomial
 # %%
-# 
+# Defining a polynomial function
+p1 = np.poly1d([5,-2,5])
+print(p1)
+print(p1(2))
+
+# %%
+# How to add one polynomial to another using NumPy in Python?
+p2 = np.poly1d([2,-5,2])
+print(p2)
+result = np.polynomial.polynomial.polyadd(p1,p2)
+print(result)
+
+# %%
+# How to subtract one polynomial to another using NumPy in Python?
+result = np.polynomial.polynomial.polysub(p1,p2)
+print(result)
+
+# %%
+# How to multiply a polynomial to another using NumPy in Python?
+result = np.polynomial.polynomial.polysub(p1,p2)
+print(result)
+
+# %%
+# How to divide a polynomial to another using NumPy in Python?
+result = np.polynomial.polynomial.polydiv(p1,p2)
+print(result)
+
+# %%
+# Find the roots of the polynomials using NumPy
+roots = p1.r
+print(roots)
+coef=[1,2,1]
+roots = np.roots(coef)
+print(roots)
+# %%
+# Evaluate a 2-D polynomial series on the Cartesian product
+c = np.array([[1, 3, 5], [2, 4, 6]]) 
+ans = np.polynomial.polynomial.polygrid2d([7, 9], [8, 10], c)
+print(ans)
+
+# %%
+# Evaluate a 3-D polynomial series on the Cartesian product
+c = np.arange(24).reshape(2,2,3,2)
+print(np.polynomial.polynomial.polyval3d([2,1],[1,2],[2,3], c))
+
+# %%
+# Numpy Strings
+# %%
+# Repeat all the elements of a NumPy array of strings

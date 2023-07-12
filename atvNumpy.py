@@ -271,4 +271,321 @@ z = np.cov(x)
 print(z)
 
 # %%
+# converting covariance to correlation using python
+y = np.array([[4,3,0],[0,3,4]])
+corr = np.cov(x,y)/(np.std(x)*np.std(y))
+print(corr)
+
+# %%
+# kronecker product
+kron = np.kron(x,y)
+print(kron)
+
+# %%
+# Convert the matrix into a list
+listaX = x.tolist()
+print(listaX)
+
+# %%
+# Numpy indexing 
+
+# %%
+# Replace NumPy array elements that doesn’t satisfy the given condition
+x[x>0] = 1
+print(x)
+
+# %%
+# Return the indices of elements where the given condition is satisfied
+a = np.where(x>0)
+print(a)
+
+# %%
+# Replace nan values
+x = np.array([np.nan, 1, np.nan])
+x = np.nan_to_num(x, nan=-1)
+x
+
+# %%
+# Replace negative value with zero in numpy array
+x[x<0] = 0
+x
+
+# %%
+# How to get values of an NumPy array at certain index positions?
+element = y[0][1]
+print(element)
+
+# %%
+# Find indices of elements equal to zero in a NumPy array
+ind = np.where(x == 0)
+print(ind)
+
+# %%
+# How to Remove columns in Numpy array that contains non-numeric values?
+y = np.array([[10.5, 22.5, 3.8],[23.45, 50, 78.7],[41, np.nan, np.nan]])
+y = y[:,~np.isnan(y).any(axis=0)]
+y
+
+# %%
+# How to access different rows of a multidimensional NumPy array?
+y[[0,2]]
+
+# %%
+# Get row numbers of NumPy array having element larger than X
+x = np.array([[1,3,2],[5,6,7]])
+row = np.where(np.any(x>5, axis=1))
+row
+
+# %%
+# Get filled the diagonals of NumPy array
+x = np.array([[0,3,2],[5,0,7],[8,9,0]])
+np.fill_diagonal(x, 1)
+x
+
+# %%
+# Check elements present in the NumPy array
+print(0 in x)
+
+# %%
+# Linear Algebra
+# %%
+# Find a matrix or vector norm using NumPy
+vec = np.arange(10)
+print(vec)
+norm = np.linalg.norm(vec)
+print(norm)
+
+# %%
+# Calculate the QR decomposition of a given matrix using NumPy
+matrix1 = np.array([[1, 2, 3], [3, 4, 5]])
+q, r = np.linalg.qr(matrix1)
+print('\n',q,'\n',r)
+
+# %%
+# Compute the condition number of a given matrix using NumPy
+result = np.linalg.cond(matrix1)
+print(result)
+
+# %%
+# Compute the eigenvalues and right eigenvectors of a given square array using NumPy?
+matrix1 = np.array([[1, 2, 3], [3, 4, 5],[6,7,8]])
+w, v = np.linalg.eig(matrix1)
+print(w,'\n',v)
+
+# %%
+# Calculate the Euclidean distance using NumPy
+p1 = np.array((1,2,3))
+p2 = np.array((1,1,1))
+dist = np.linalg.norm(p1-p2)
+print(dist)
+
+# %%
+# Numpy Random
+# %%
+# Create a Numpy array with random values
+n = np.rint(np.random.rand(10)*10)
+n
+
+# %%
+# How to choose elements from the list with different probability using NumPy?
+numlist = np.random.choice(n, 2, p=[0.01,0.19,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,])
+print(numlist)
+
+# %%
+# How to get weighted random choice in Python?
+import random
+sampleList = [100, 200, 300, 400, 500]
+randomList = random.choices(sampleList, weights=(10, 20, 30, 40, 50), k=5)
+print(randomList)
+
+# %%
+#  numpy.random.uniform(low = 0.0, high = 1.0, size = None) 
+np.rint(np.random.uniform(low = 0.0, high = 1.0, size = 4)*10) 
+
+# %%
+# Get Random Elements form geometric distribution
+import matplotlib.pyplot as plt
+gfg = np.random.geometric(0.65, 1000)
+count, bins, ignored = plt.hist(gfg, 40, density = True)
+plt.show()
+
+# %%
+# Get Random elements from Laplace distribution
+gfg = np.random.laplace(1.45, 15, 1000)
+count, bins, ignored = plt.hist(gfg, 30, density = True)
+plt.show()
+
+# %%
+# Return a Matrix of random values from a uniform distribution
+np.rint(np.random.uniform(low = 0.0, high = 1.0, size = (4,3))*10)
+
+# %%
+# Return a Matrix of random values from a Gaussian distribution
+np.rint(np.random.normal(size = (4,3))*10)
+
+# %%
+# Numpy sorting and searching
+# %%
+# How to get the indices of the sorted array using NumPy in Python?
+arr = np.array([10, 52, 62, 16, 16, 54, 453])
+arr = np.unique(arr)
+indArr = np.argsort(arr, axis=-1, kind="quicksort", order=None)
+print(indArr)
+arr = arr[indArr]
+print(arr)
+
+# %%
+# Finding the k smallest values of a NumPy array
+k = 4
+arr[:k]
+
+# %%
+# How to get the n-largest values of an array using NumPy?
+n = 2
+arr[-2:]
+
+# %%
+# Sort the values in a matrix
+matrix1 = np.array([[3,4,2],[7,5,9]])
+matrix1.sort()
+print(matrix1)
+
+# %%
+# Filter out integers from float numpy array
+floatAndInt = np.array([1.0, 1.2, 2.2, 2.0, 3.0, 2.0])
+result = floatAndInt[floatAndInt != floatAndInt.astype(int)]
+print(result)
+
+# %%
+# Numpy mathematics
+# %%
+# How to get element-wise true division of an array using Numpy?
+result = np.true_divide(matrix1, 2)
+print(result)
+
+# %%
+# How to calculate the element-wise absolute value of NumPy array?
+arr = np.array([1,-2,3])
+result = np.absolute(arr)
+print(result)
+
+# %%
+# Compute the negative of the NumPy array
+arr = np.negative(arr)
+print(arr)
+
+# %%
+# Multiply 2d numpy array corresponding to 1d array
+x = np.array([[1, 2, 3], [2, 4, 5], [1, 2, 3]])
+y = np.array([0, 2, 3])
+result = x * y[:,np.newaxis]
+print(result)
+
+# %%
+# Compute the nth percentile of the NumPy array
+n = 25
+np.percentile(arr,n)
+
+# %%
+# Calculate the n-th order discrete difference along the given axis
+n = 1
+np.diff(arr, n)
+
+# %%
+# Calculate the sum of all columns in a 2D NumPy array
+np.sum(matrix1, axis = 0)
+
+# %%
+# Calculate average values of two given NumPy arrays
+avg = ((arr + matrix1)/2)
+print(avg)
+
+# %%
+# How to get the floor, ceiling and truncated values of the elements of a numpy array?
+matrix1 = np.array([-1.8, -1.6, -0.5, 0.5,1.6, 1.8, 3.0])
+print(np.floor(matrix1))
+print(np.ceil(matrix1))
+print(np.trunc(matrix1))
+
+# %%
+# How to round elements of the NumPy array to the nearest integer?
+np.trunc(matrix1)
+
+# %%
+# Find the round off the values of the given matrix
+matrix1.round()
+
+# %%
+# Determine the positive square-root of an array
+matrix1 = np.array([[1, 4, 9, 16],[36, 100, 121, 400]])
+sqrMatrix = np.sqrt(matrix1)
+print(sqrMatrix)
+
+# %%
+# Evaluate Einstein’s summation convention of two multidimensional NumPy arrays
+np.einsum("mk,nk",matrix1, sqrMatrix)
+
+# %%
+# Statistics
+# %%
+# Compute the median of the flattened NumPy array
+flatten = np.array([[2,3,4],[3,6,8]]).flatten()
+print(flatten)
+print(np.median(flatten))
+
+# %%
+# Find Mean of a List of Numpy Array
+inp = [np.array([1, 2, 3]),np.array([4, 5, 6]),np.array([7, 8, 9])]
+out = []
+for i in range(len(inp)):
+    out.append(np.mean(inp[i]))
+print(out)
+
+# %%
+# Calculate the mean of array ignoring the NaN value
+arr = np.array([[20, 15, 37], [47, 13, np.nan]])
+print(np.nanmean(arr))
+
+# %%
+# Get the mean value from given matrix
+np.mean()
+
+# %%
+# Compute the variance of the NumPy array
+np.var()
+
+# %%
+# Compute the standard deviation of the NumPy array
+np.std()
+
+# %%
+# Compute pearson product-moment correlation coefficients of two given NumPy arrays
+np.corrcoef()
+
+# %%
+# Calculate the average, variance and standard deviation in Python using NumPy
+np.average()
+np.var()
+np.std()
+
+# %%
+# Describe an array
+arr = np.array([4, 5, 8, 5, 6, 4,9, 2, 4, 3, 6])
+min = np.amin(arr)
+max = np.amax(arr)
+range = np.ptp(arr)
+variance = np.var(arr)
+sd = np.std(arr)
+ 
+print("Array =", arr)
+print("Measures of Dispersion")
+print("Minimum =", min)
+print("Maximum =", max)
+print("Range =", range)
+print("Variance =", variance)
+print("Standard Deviation =", sd)
+
+# %%
+# Polynomial
+# %%
 # 

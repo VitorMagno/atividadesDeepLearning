@@ -9,9 +9,7 @@ X, y = make_blobs(centers=2, cluster_std=1, random_state=1)
 weights = np.random.rand(3)
 plt.scatter(X[:,0], X[:,1], c=y)
 plt.show()
-# %%
-alfa = 0.01
-epoch = 10000
+
 # %%
 class Perceptron(object):
     def __init__(self, learning_rate=0.01, epochs=50, verbose=False):
@@ -23,10 +21,7 @@ class Perceptron(object):
         return np.dot(X, self._weights) + self._bias
 
     def _activation(self, m):
-        if (m >= 0):
-            return 1
-        else:
-            return 0
+        return np.where(m>=0.0, 1,-1)
 
     def fit(self, X, y):
         self._bias = np.random.uniform(-1,1)
@@ -45,6 +40,9 @@ class Perceptron(object):
     def predict(self,X):
         return self._activation(self._sum(X))
 
+# %%
+alfa = 0.01
+epoch = 60
 # %%
 percp = Perceptron(epochs = epoch, learning_rate=alfa)
 percp.fit(X,y)

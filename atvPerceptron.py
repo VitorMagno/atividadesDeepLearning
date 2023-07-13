@@ -1,5 +1,16 @@
 # %%
 import numpy as np
+
+# %%
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+%matplotlib inline
+from sklearn.datasets import make_blobs
+X, y = make_blobs(n_samples=150,n_features=2,centers=2, cluster_std=1.05, random_state=2)
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=123)
+plt.scatter(X[:,0], X[:,1], c=y)
+plt.show()
+
 # %%
 class Perceptron:
     def __init__(self, learning_rate=0.01, i=100):
@@ -37,25 +48,18 @@ class Perceptron:
 alfa = 0.01
 i = 1000
 percep = Perceptron(alfa, i)
-# %%
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-%matplotlib inline
-from sklearn.datasets import make_blobs
-X, y = make_blobs(n_samples=150,n_features=2,centers=2, cluster_std=1.05, random_state=2)
-X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=123)
-plt.scatter(X[:,0], X[:,1], c=y)
-plt.show()
 
 # %%
 def accuracy(y_true, y_pred):
     accuracy = np.sum(y_true == y_pred) / len(y_true)
     return accuracy
 
+# %%
 percep.fit(X_train, y_train)
 predictions = percep.predict(X_test)
 print("Perceptron classification accuracy", accuracy(y_test, predictions))
 
+# %%
 fig = plt.figure()
 ax = fig.add_subplot(1,1,1)
 plt.scatter(X_train[:,0], X_train[:,1], marker='o', c=y_train)

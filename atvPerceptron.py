@@ -4,7 +4,6 @@ import numpy as np
 # %%
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
-%matplotlib inline
 from sklearn.datasets import make_blobs
 X, y = make_blobs(n_samples=150,n_features=2,centers=2, cluster_std=1.05, random_state=2)
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=123)
@@ -77,3 +76,4 @@ ymax = np.amax(X_train[:,1])
 ax.set_ylim([ymin-3,ymax+3])
 
 plt.show()
+# %%

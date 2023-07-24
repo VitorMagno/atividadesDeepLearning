@@ -1,6 +1,6 @@
 # %%
 import numpy as np
-from perceptron import Perceptron
+from perceptrons import PerceptronSimple
 # %%
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -23,7 +23,7 @@ def accuracy(y_true, y_pred):
 # %%
 percep.fit(X_train, y_train)
 predictions = percep.predict(X_test)
-print("Perceptron classification accuracy", accuracy(y_test, predictions))
+print(f"Perceptron classification accuracy {accuracy(y_test, predictions)*100}%")
 
 # %%
 fig = plt.figure()

@@ -18,21 +18,21 @@ class SimplePerceptron:
         self.alfa = alfa
         self.epoch = epoch
 
-    def train(self, X, y_train):
-        n_samples, n_features = X.shape
+    def _feedfoward(self, X, y_train):
+        n_features = len(X)
         self.weights = np.random.rand(n_features)
         self.bias = 1
         for elem in range(self.epoch):
             for index, x in enumerate(X):
-                y_predicted = self.sum(X[index], self.weights[index], self.bias)
+                y_predicted = self.weightedSum(X[index], self.weights[index], self.bias)
                 if(self.activation(y_predicted)) == 0:
                     self.weights[index+1] = self.weights[index] + self.update(self.alfa, y_train[index], y_predicted)
                     self.bias = self.weights[index] + self.update(self.alfa, y_train[index], y_predicted)
     
-    def update(alfa, y_train, y_predicted, x):
+    def _update(alfa, y_train, y_predicted, x):
         return ((alfa * (y_train - y_predicted)) * x)
     
-    def sum(value, w, bias):
+    def weightedSum(value, w, bias):
         return np.dot(value, w) + bias
     
     def activation(self, value):

@@ -42,9 +42,9 @@ class PerceptronBetter:
         self.bias = None
 
     def fit(self, X, y):
-        n_samples, n_features = X.shape
+        n_features, n_samples = X.shape
         # init weights
-        self.weights = np.zeros(n_features)
+        self.weights = np.zeros(n_samples)
         self.bias = 0
         y_ = np.array([1 if i>0 else 0 for i in y])
 

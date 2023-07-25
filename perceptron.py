@@ -26,7 +26,7 @@ class SimplePerceptron:
             for index, x in enumerate(X):
                 y_predicted = self.weightedSum(X[index], self.weights[index], self.bias)
                 if(self.activation(y_predicted)) == 0:
-                    self.weights[index+1] = self.weights[index] + self.update(self.alfa, y_train[index], y_predicted)
+                    self.weights[index] = self.weights[index] + self.update(self.alfa, y_train[index], y_predicted)
                     self.bias = self.weights[index] + self.update(self.alfa, y_train[index], y_predicted)
     
     def _update(alfa, y_train, y_predicted, x):

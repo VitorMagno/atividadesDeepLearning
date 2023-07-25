@@ -22,12 +22,9 @@ bias_hO = np.random.rand(output_size)
 #%%
 def train(X,y, epoch, alfa):
      for elem in range(epoch):
-        input_layer_out,output_layer_out = feedForward(X)
+        hidden_layer_out,output_layer_out = feedForward(X)
         # calculate the error
-        backPropagation(input_layer_out, output_layer_out)
-        error = output - y
-        delta = error * derivative(output)
-        print(delta)
+        backPropagation(hidden_layer_out, output_layer_out)
 
 def activation(output):
     return 1/(1+np.exp(-output))
@@ -40,10 +37,12 @@ def feedForward(X):
     hidden_layer_output = activation(hidden_layer_input)
     output_layer_input = np.dot(hidden_layer_output, weights_h_output) + bias_hO
     output_layer_output = activation(output_layer_input)
-    backPropagation(output_layer_input,output_layer_output)
-    return output_layer_output
+    
+    return hidden_layer_output, output_layer_output
 
-def backPropagation():
+def backPropagation(output):
+    error = output - y
+    delta = error * derivative(output)
     pass
 #%%
 train(X_train, y_test, epoch=100, alfa=0.01)
